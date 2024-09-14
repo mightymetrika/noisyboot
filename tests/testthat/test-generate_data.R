@@ -7,6 +7,10 @@ test_that("generate_data_anova works", {
                                  n = c(6,6,6)) |>
     suppressWarnings()
 
+  stats::anova(stats::lm(x ~ factor(grp), grp_dat))$`F value`[1]
+  stats::anova(stats::lm(x ~ factor(grp), grp_dat))[["Pr(>F)"]][1]
+
+
   expect_equal(nrow(grp_dat), 18)
   expect_equal(length(unique(grp_dat$grp)), 3)
 

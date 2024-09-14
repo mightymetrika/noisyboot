@@ -28,8 +28,8 @@ reference value while negative of .xi skew the noise away from the reference
 value . Default is 1.5. The reference value is the function defined in func
 applied to the original dataset.}
 
-\item{func_noise}{A function to transform the noise before adding it to the data.
-Default is the identity function.}
+\item{func_noise}{A function to transform the noise before adding it to the
+statistic. Default is the identity function.}
 
 \item{R}{Integer. The number of bootstrap replicates. Default is 500.}
 
@@ -41,10 +41,10 @@ An object of class "boot", as returned by boot::boot().
 \description{
 This function performs a bootstrap analysis with added noise. It allows for
 skewed noise and custom noise transformations, making it useful for
-sensitivity analyses and robust statistical inference.
+sensitivity analyses and stability testing.
 }
 \details{
-The function adds noise to each bootstrap sample before computing the statistic.
+The function adds noise to the statistic from each bootstrap sample.
 The noise is generated using a skew-normal distribution if .xi is non-zero,
 otherwise it uses a normal distribution. The noise can be further transformed
 using the func_noise parameter.
